@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Список товаров</title>
+    <!-- Подключение внешнего CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_index.css') }}">
+</head>
+<body>
+    <h1>Список товаров</h1>
+    
+    <!-- Блок авторизации -->
+    <div style="margin-bottom: 20px;">
+        {% if session.get('user_id') %}
+            <span>Здравствуйте, {{ session.get('username') }}!</span>
+            <a href="{{ url_for('main.logout') }}" class="a-btn">Выйти</a>
+        {% else %}
+            <a href="{{ url_for('main.login') }}" class="a-btn">Войти</a>
+            <a href="{{ url_for('main.register') }}" class="a-btn">Регистрация</a>
+        {% endif %}
+    </div>
+    
+    <!-- Кнопка для добавления товара, доступна только авторизованным -->
+    {% if session.get('user_id') %}
+        <a href="{{ url_for('main.add_form') }}" class="a-btn">Добавить новый товар</a>
+    {% endif %}
+    
+    <table border="1" cellpadding="5" cellspacing="0" style="margin-top:20px;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Цена/кг</th>
+                <th>Количество</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}₽</td>
+                <td>{{ product.quantity }}кг</td>
+                <td>
+                  <a href="{{ url_for('main.product_detail', product_id=product.id) }}" class="btn btn-view">Просмотр</a>
+                  
+                  {% if session.get('user_id') %}
+                      <a href="{{ url_for('main.edit_product_form', product_id=product.id) }}" class="btn btn-edit">Редактировать</a>
+                      <form method="POST" action="{{ url_for('main.add_or_delete_product') }}" style="display:inline;">
+                          <input type="hidden" name="delete_id" value="{{ product.id }}">
+                          <button type="submit" onclick="return confirm('Удалить этот товар?');" class="btn btn-delete">Удалить</button>
+                      </form>
+                  {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
