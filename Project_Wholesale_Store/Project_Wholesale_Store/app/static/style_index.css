@@ -1,0 +1,175 @@
+/* style_index.css */
+
+body {
+  font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-image: url('store.png');
+  color: #333;
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  
+}
+
+h1 {
+  text-align: center;
+  color: #5070c9;
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.2s;
+}
+
+a:hover {
+  color: #2980b9;
+  transform: translateY(-2px);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+table:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+thead {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+}
+
+th {
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+tbody tr {
+  transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+td {
+  padding: 16px 20px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+span {
+  color: #5070c9;
+  font-weight: 100;
+}
+
+button {
+  background-color: #e74c3c;
+  border: none;
+  padding: 10px 16px;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #c0392b;
+  transform: translateY(-1px);
+}
+
+form {
+  display: inline;
+}
+
+/* Стиль для кнопки "Добавить" */
+.a-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.a-btn:hover {
+  background: linear-gradient(135deg, #3b7d2f 0%, #8fcf3b 100%);
+  transform: translateY(-2px);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  body {
+      margin: 20px auto;
+  }
+  h1 {
+      font-size: 1.75rem;
+  }
+  th, td {
+      padding: 12px 16px;
+  }
+  button {
+      padding: 8px 12px;
+      font-size: 13px;
+  }
+}
+/* Общие стили для кнопок-ссылок */
+.a-btn, .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Стиль для кнопки "Просмотр" */
+.btn-view {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+}
+
+.btn-view:hover {
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  transform: translateY(-2px);
+}
+
+/* Стиль для кнопки "Редактировать" */
+.btn-edit {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, #e67e22, #f39c12);
+  transform: translateY(-2px);
+}
