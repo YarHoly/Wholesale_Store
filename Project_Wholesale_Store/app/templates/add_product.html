@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Добавить новый товар</h1>
-    <form method="POST" action="{{ url_for('main.add_or_delete_product') }}">
+    <form method="POST" action="{{ url_for('main.add_product') }}">
         <label for="name">Название:</label><br>
         <input type="text" id="name" name="name" required><br><br>
 

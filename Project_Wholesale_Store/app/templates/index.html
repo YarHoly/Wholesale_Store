@@ -49,10 +49,10 @@
                   
                   {% if session.get('user_id') %}
                       <a href="{{ url_for('main.edit_product_form', product_id=product.id) }}" class="btn btn-edit">Редактировать</a>
-                      <form method="POST" action="{{ url_for('main.add_or_delete_product') }}" style="display:inline;">
+                      <form method="POST" action="{{ url_for('main.delete_product') }}" style="display:inline;">
                           <input type="hidden" name="delete_id" value="{{ product.id }}">
                           <button type="submit" onclick="return confirm('Удалить этот товар?');" class="btn btn-delete">Удалить</button>
-                      </form>
+                      </form>   
                   {% endif %}
               </td>
             </tr>

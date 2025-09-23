@@ -55,15 +55,18 @@ def index():
 def add_form():
     return render_template('add_product.html')
 
-@bp.route('/products', methods=['POST'])
-def add_or_delete_product():
+@bp.route('/delete_product', methods=['POST'])
+def delete_product():
     if 'delete_id' in request.form:
         delete_id = int(request.form['delete_id'])
         product = product_repo.get_by_id(delete_id)
         if product:
             product_repo.delete(product)
         return redirect(url_for('main.index'))
-    elif 'name' in request.form:
+    
+@bp.route('/add_products', methods=['POST'])
+def add_product():    
+    if 'name' in request.form:
         name = request.form['name']
         description = request.form['description']
         try:
