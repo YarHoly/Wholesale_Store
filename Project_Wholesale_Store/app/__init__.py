@@ -5,7 +5,7 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = 'your_secret_key'  # Замените на надежный ключ
+    app.secret_key = 'Jns68Ndj3'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///products.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
