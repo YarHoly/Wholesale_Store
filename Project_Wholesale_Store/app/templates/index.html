@@ -3,28 +3,23 @@
 <head>
     <meta charset="UTF-8" />
     <title>Список товаров</title>
-    <!-- Подключение внешнего CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_index.css') }}">
 </head>
 <body>
     <h1>Список товаров</h1>
     
-    <!-- Блок авторизации -->
     <div style="margin-bottom: 20px;">
-        {% if session.get('user_id') %}
-            <span>Здравствуйте, {{ session.get('username') }}!</span>
-            <a href="{{ url_for('main.logout') }}" class="a-btn">Выйти</a>
-        {% else %}
-            <a href="{{ url_for('main.login') }}" class="a-btn">Войти</a>
-            <a href="{{ url_for('main.register') }}" class="a-btn">Регистрация</a>
-        {% endif %}
-    </div>
-    
-    <!-- Кнопка для добавления товара, доступна только авторизованным -->
     {% if session.get('user_id') %}
+        <span style="font-size: 18px; color: #ffffff;">Здравствуйте, {{ session.get('username') }}!</span>
+        <a href="{{ url_for('main.logout') }}" class="a-btn">Выйти</a>
         <a href="{{ url_for('main.add_form') }}" class="a-btn">Добавить новый товар</a>
+    {% else %}
+        <a href="{{ url_for('main.login') }}" class="a-btn">Войти</a>
+        <a href="{{ url_for('main.register') }}" class="a-btn">Регистрация</a>
+        
+        <span style="margin-left: 15px; color: #ffffff; font-size: 18px;">👆 Войдите, чтобы управлять товарами</span>
     {% endif %}
-    
+    </div>
     <table border="1" cellpadding="5" cellspacing="0" style="margin-top:20px;">
         <thead>
             <tr>

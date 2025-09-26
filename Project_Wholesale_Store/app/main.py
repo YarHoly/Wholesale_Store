@@ -41,7 +41,7 @@ def logout():
 
 @bp.before_request
 def require_login():
-    allowed_routes = ['main.login', 'main.register']
+    allowed_routes = ['main.login', 'main.register', 'main.index', 'main.product_detail']
     if request.endpoint and request.endpoint.startswith('main.') and request.endpoint not in allowed_routes:
         if 'user_id' not in session:
             return redirect(url_for('main.login'))

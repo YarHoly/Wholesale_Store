@@ -14,7 +14,6 @@ def create_app():
     with app.app_context():
         db.create_all()
 
-    # Регистрация блюпринта
     from .main import bp as main_bp
     app.register_blueprint(main_bp)
 
